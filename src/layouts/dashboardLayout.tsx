@@ -1,7 +1,11 @@
 // import React from 'react'
 
+import HeaderDash from "../components/dashboard/header";
+
 export default function DashboardLayout() {
   return (
-    <div>dashboardLayout</div>
+    <>
+      <HeaderDash/>
+    </>
   )
 }
