@@ -6,6 +6,10 @@ a {
     text-decoration: none;
 }
 
+body{
+    overscroll-behavior-y: none;
+}
+
 body::-webkit-scrollbar {
     width: 6px;
 }

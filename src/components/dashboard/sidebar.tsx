@@ -3,7 +3,9 @@
 export default function sidebar() {
   return (
     <>
-
+        <aside>
+            
+        </aside>
     </>
   )
 }
