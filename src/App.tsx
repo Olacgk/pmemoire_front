@@ -3,6 +3,7 @@ import LandingLayout from './layouts/landingLayout'
 import Home from './pages/landing-page/home'
 import Login from './pages/landing-page/login'
 import DashboardLayout from './layouts/dashboardLayout'
+import Expert from './pages/dashboard-pages/expert'
 
 function App() {
   
@@ -14,7 +15,9 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login/>}/>
         </Route>
-        <Route path='/dashboard' element={<DashboardLayout/>}></Route>
+        <Route path='/dashboard' element={<DashboardLayout/>}>
+          <Route path='experts' element={<Expert/>}/>
+        </Route>
       </Routes>
     </BrowserRouter>
   )

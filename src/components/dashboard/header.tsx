@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function HeaderDash() {
   return (
-    <header className="bg-white">
+    <header className="bg-white top-0 sticky w-full shadow-md shadow-blue-gray-900/5">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">

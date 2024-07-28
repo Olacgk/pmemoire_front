@@ -5,7 +5,7 @@ export default function Home() {
     const { Search } = Input;
   return (
     <>
-      <div className="bg-homeBg bg-cover bg-center min-h-screen flex items-center justify-center">
+      <div className="bg-homeBg bg-center min-h-screen flex items-center justify-center">
         <div className="bg-[#041f4e9d] rounded-lg p-4 flex justify-between items-center w-[70%] h-auto flex-col gap-8">
           <div>
             <ul className="flex items-center justify-between">
