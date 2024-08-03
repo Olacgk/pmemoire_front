@@ -7,11 +7,11 @@ import SidebarDash from "../components/dashboard/sidebar";
 export default function DashboardLayout() {
   return (
     <>
-      <div>
+      <div className="h-screen overflow-hidden">
         <HeaderDash />
         <div className="flex ">
           <SidebarDash />
-          <div className="p-4 h-[calc(100vh-96px)] bg-[#f5f5f5] w-[86%]">
+          <div className="p-4 h-[calc(100vh-96px)] bg-[#f5f5f5] w-[86%] overflow-auto">
             <Outlet />
           </div>
         </div>

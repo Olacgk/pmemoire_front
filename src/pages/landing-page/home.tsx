@@ -8,7 +8,7 @@ export default function Home() {
       <div className="bg-homeBg bg-center h-screen flex items-center justify-center">
         <div className="bg-[#041f4e9d] rounded-lg p-4 flex justify-between items-center w-[70%] h-auto flex-col gap-8">
           <div>
-            <ul className="flex items-center justify-between">
+            <ul className="flex items-center justify-between" >
               <li>
                 <button className="p-2 bg-blue-500 text-white rounded ml-2 hover:bg-blue-600 focus:outline-none">
                   Tout

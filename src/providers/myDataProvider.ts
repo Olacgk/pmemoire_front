@@ -89,10 +89,16 @@ export const myDataProvider: DataProvider = {
     const url = id
       ? `${base_url}/${resource}/${id}/`
       : `${base_url}/${resource}/`;
+
+      const headers = {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      };
     const method: any = meta?.method ? meta?.method : "PUT";
     const response = await fetch(url, {
       method,
       body: JSON.stringify(variables),
+      headers
     });
 
     const data = await response.json();
