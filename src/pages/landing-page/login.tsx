@@ -1,8 +1,31 @@
 // import React from 'react'
 
-import { Link } from "react-router-dom";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { _login } from "../../providers/auth.actions";
+import { message } from "antd";
 
+interface LoginType {email: string, password:string}
 export default function Login() {
+  const navigate = useNavigate()
+
+  const {register, handleSubmit, formState:{errors}} = useForm<LoginType>();
+
+  const onSubmit : SubmitHandler<LoginType> = (data) => {
+    console.log(data);
+    _login(data).then((response)=> {
+      if(response?.data?.isAuthSuccessful){
+        sessionStorage.setItem(
+          "accessToken", response?.data?.token
+        );
+        sessionStorage.setItem("userInfos", JSON.stringify(response?.data?.user));
+        navigate("/dashboard")
+      }else {
+        message.error("Login ou mot de passe incorrect")
+      }
+    })
+}
+
   return (
     <>
       <div className="flex items-center justify-center">
@@ -14,19 +37,17 @@ export default function Login() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
+          <form onSubmit={handleSubmit(onSubmit)} method="POST" className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email
               </label>
               <div className="mt-2">
                 <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  {...register("email", 
+                        {required : 'Veuillez remplir ce champ.'})}
+                            className={`block w-full border ${errors.email ? 'border-red-600' : 'border-gray-300'} px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400`}
+                            placeholder="username" 
                 />
               </div>
             </div>
@@ -44,25 +65,20 @@ export default function Login() {
               </div>
               <div className="mt-2">
                 <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  autoComplete="current-password"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  {...register("password", {required : 'Veuillez remplir ce champ.'})}
+                  className={`block w-full border ${errors.password ? 'border-red-600' : 'border-gray-300'} px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400`}
+                  placeholder="*******"
                 />
               </div>
             </div>
 
             <div>
-              <Link to={"/dashboard"}>
                 <button
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-[#041f4e] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Sign in
                 </button>
-              </Link>
             </div>
           </form>
 
