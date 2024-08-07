@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useState } from "react";
 import isiLogo from "../../assets/LOGO-NEW-GROUP.png";
 import { Link, useLocation } from "react-router-dom";

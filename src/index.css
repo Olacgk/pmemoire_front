@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
 a {
     text-decoration: none;
 }
 
 body{
-    overscroll-behavior-y: none;
+  overscroll-behavior: none;
+    /* overscroll-behavior-y: none;
+    overscroll-behavior-x: none; */
 }
 
 body::-webkit-scrollbar {
@@ -61,3 +64,24 @@ body::-webkit-scrollbar-thumb:hover {
     text-shadow: 4px 4px 0px #00ffc0;
   }
    */
+
+   .animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+  
+  .zoomIn {
+    animation-name: zoomIn;
+  }
+  
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+  
+    50% {
+      opacity: 1;
+    }
+  }
+  

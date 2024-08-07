@@ -1,37 +1,44 @@
-import { Input } from "antd";
+import { FaBookOpen, FaHeadset, FaUserTie } from "react-icons/fa";
+import Caroussel from "../../components/LandingPage/Caroussel";
+import FilterComponent from "../../components/LandingPage/SearchBarFilter";
+import ServiceItem from "../../components/LandingPage/ServiceItem";
 
 export default function Home() {
-
-    const { Search } = Input;
   return (
     <>
-      <div className="bg-homeBg bg-center h-screen flex items-center justify-center">
-        <div className="bg-[#041f4e9d] rounded-lg p-4 flex justify-between items-center w-[70%] h-auto flex-col gap-8">
-          <div>
-            <ul className="flex items-center justify-between" >
-              <li>
-                <button className="p-2 bg-blue-500 text-white rounded ml-2 hover:bg-blue-600 focus:outline-none">
-                  Tout
-                </button>
-              </li>
-              <li>
-                <button className="p-2 bg-blue-500 text-white rounded ml-2 hover:bg-blue-600 focus:outline-none">
-                  Licence
-                </button>
-              </li>
-              <li>
-                <button className="p-2 bg-blue-500 text-white rounded ml-2 hover:bg-blue-600 focus:outline-none">
-                  Master
-                </button>
-              </li>
-              <li>
-                <button className="p-2 bg-blue-500 text-white rounded ml-2 hover:bg-blue-600 focus:outline-none">
-                  Doctorat
-                </button>
-              </li>
-            </ul>
+      <div className="w-full flex flex-col space-y-4">
+        <Caroussel />
+        <FilterComponent />
+        <div className="w-full m-auto flex flex-col justify-center items-center">
+          <div
+            className="text-center pb-3 mb-5 mx-auto"
+            style={{ maxWidth: "600px" }}
+          >
+            <h1 className="mb-0 text-4xl font-medium text-[#16243d]">
+              Bienvenue à votre bibliothèque numérique
+            </h1>
           </div>
-            <Search allowClear placeholder="Entrez le thème..." style={{height: "48px"}}/>
+          <div className="grid grid-flow-row grid-cols-3 gap-6">
+            <ServiceItem
+              title="Présentation du Groupe ISI"
+              description="Le Groupe ISI met à votre disposition une bibliothèque numérique pour faciliter le partage de vos thèses et mémoires."
+              icon={<FaUserTie color="#787878"/>}
+              link="/"
+            />
+            <ServiceItem
+              title="Nos Thèses & Mémoires"
+              description="Accédez à un large choix de thèses et mémoires de différents domaines et spécialités."
+              icon={<FaBookOpen color="#787878"/>}
+              link="/"
+            />
+            <ServiceItem
+              title="Assistance"
+              description="Notre équipe est disponible pour vous accompagner et répondre à vos questions."
+              icon={<FaHeadset color="#787878"/>}
+              link="/"
+              linkTitle="Contactez-nous"
+            />
+          </div>
         </div>
       </div>
     </>
