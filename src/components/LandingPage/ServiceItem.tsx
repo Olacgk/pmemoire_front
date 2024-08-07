@@ -19,9 +19,9 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   <div className="w-full">
     <div className="flex flex-col justify-center items-center text-center p-4 transition-transform transform hover:scale-105">
       <div className="flex-shrink-0 text-primary text-4xl mb-4">{icon}</div>
-      <h5 className="mb-3">{title}</h5>
-      <p>{description}</p>
-      <Link className="btn btn-primary mt-auto mx-auto px-3 text-[#787878]" to={link} >
+      <h5 className="mb-3 font-semibold text-xl">{title}</h5>
+      <p className="text-[#787878] ">{description}</p>
+      <Link className="btn btn-primary mt-auto mx-auto px-3 text-[#787878] font-bold" to={link} >
         {linkTitle ? linkTitle : "Lire la suite"}
       </Link>
     </div>

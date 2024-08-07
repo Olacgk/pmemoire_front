@@ -9,7 +9,7 @@ export default function Home() {
       <div className="w-full flex flex-col space-y-4">
         <Caroussel />
         <FilterComponent />
-        <div className="w-full m-auto flex flex-col justify-center items-center">
+        <div className="w-full m-auto px-5 flex flex-col justify-center items-center">
           <div
             className="text-center pb-3 mb-5 mx-auto"
             style={{ maxWidth: "600px" }}
@@ -18,7 +18,7 @@ export default function Home() {
               Bienvenue à votre bibliothèque numérique
             </h1>
           </div>
-          <div className="grid grid-flow-row grid-cols-3 gap-6">
+          <div className="grid grid-cols-3 gap-6 px-8">
             <ServiceItem
               title="Présentation du Groupe ISI"
               description="Le Groupe ISI met à votre disposition une bibliothèque numérique pour faciliter le partage de vos thèses et mémoires."
