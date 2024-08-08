@@ -30,7 +30,7 @@ export default function Header() {
                   alt="Logo ISI"
                   style={{ width: "80px", height: "auto" }}
                 />
-                <p className="text-lg w-10"> Partage Mémoire</p>
+                <p className="text-lg w-10 font-medium text-[#041f4e]"> Partage Mémoire</p>
               </div>
             </Link>
           </div>
